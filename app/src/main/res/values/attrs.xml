@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="HourGlassView">
+        <attr name="hourGlassColor" format="color" />
+        <attr name="sandColor" format="color" />
+    </declare-styleable>
+</resources>

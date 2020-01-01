@@ -22,6 +22,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.softhinkers.apptime.R;
 import com.softhinkers.apptime.ui.login.LoginViewModel;
@@ -30,6 +32,8 @@ import com.softhinkers.apptime.ui.login.LoginViewModelFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+    GoogleSignInOptions gso;
+    GoogleSignInClient  googleSignInClient;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -111,6 +115,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -124,9 +129,21 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Google login", Toast.LENGTH_LONG).show();
+
+
             }
         });
+        // Configure sign-in to request the user's ID, email address, and basic
+        // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
     }
+
+
+
+
 
 
     private void updateUiWithUser(LoggedInUserView model) {

@@ -5,11 +5,12 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.softhinkers.apptime"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.debug
     }
     buildTypes {
         release {
@@ -30,6 +31,9 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+    implementation 'com.rvalerio:fgchecker:1.1.0'
+    implementation 'com.txusballesteros:FitChart:1.0'
+    implementation 'com.google.android.gms:play-services-ads:18.3.0'
 
     implementation 'androidx.annotation:annotation:1.0.2'
     testImplementation 'junit:junit:4.12'

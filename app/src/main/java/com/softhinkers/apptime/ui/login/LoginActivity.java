@@ -31,9 +31,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import com.softhinkers.apptime.MainActivity;
 import com.softhinkers.apptime.R;
-import com.softhinkers.apptime.ui.login.LoginViewModel;
-import com.softhinkers.apptime.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -189,6 +188,12 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void updateUI(GoogleSignInAccount account) {
-        Toast.makeText(this, account.getEmail(), Toast.LENGTH_SHORT).show();
+        if (account != null) {
+            Toast.makeText(this, account.getEmail(), Toast.LENGTH_SHORT).show();
+            Intent mainActivity = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(mainActivity);
+            finish();
+        }
+
     }
 }
